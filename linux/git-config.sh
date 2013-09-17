@@ -1,5 +1,5 @@
 defaultName="Guillaume Girou"
-read -p "user.name (default: $defaultName): " username
+read -p "user.name [$defaultName]: " username
 username=${username:-$defaultName}
 read -p "user.email: " useremail
 
