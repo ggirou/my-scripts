@@ -3,7 +3,7 @@ read -p "Key name [$defaultName]: " name
 name=${name:-$defaultName}
 
 while true; do
-	read -p "Do you wish to encrypt the private key with a password [Yn]?" yn
+	read -p "Do you wish to encrypt the private key with a password [Yn]? " yn
 	yn=${yn:-Y}
 	case $yn in
 		# Create the Private key with a password
