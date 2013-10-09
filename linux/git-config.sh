@@ -12,6 +12,8 @@ git config --global credential.helper cache
 # Set the cache to timeout after 1 hour (setting is in seconds)
 git config --global credential.helper 'cache --timeout=3600'
 git config --global push.default simple
+# Add some colors to ui
+git config --global color.ui true
 # Set a log alias "git lg" (https://coderwall.com/p/euwpig)
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 echo -------------------------------------------------------------------------------
