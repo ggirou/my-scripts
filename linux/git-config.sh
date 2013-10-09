@@ -14,8 +14,15 @@ git config --global credential.helper 'cache --timeout=3600'
 git config --global push.default simple
 # Add some colors to ui
 git config --global color.ui true
+# ALIAS
 # Set a log alias "git lg" (https://coderwall.com/p/euwpig)
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+# Set a diff alias more tolerant
+git config --global alias.dif 'diff --ignore-space-change --color-words'
+# Set a stash alias to only stash unstaged files
+git config --global alias.stash-unstaged 'stash --keep-index'
+
+
 echo -------------------------------------------------------------------------------
 git config --list
 
