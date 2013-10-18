@@ -1,12 +1,19 @@
 usernameBak=`git config --global user.name`
 useremailBak=`git config --global user.email`
+mergetoolBak=`git config --global merge.tool`
 read -p "user.name [$usernameBak]: " username
 read -p "user.email [$useremailBak]: " useremail
+
+git mergetool --tool-help
+read -p "merge.tool [$mergetoolBak]: " mergetool
 username=${username:-$usernameBak}
 useremail=${useremail:-$useremailBak}
+mergetoolBak=${mergetool:-$mergetoolBakBak}
 
 git config --global user.name "$username"
 git config --global user.email "$useremail"
+# Set the merge tool
+git config --global merge.tool "$mergetool"
 # Set git to use the credential memory cache
 git config --global credential.helper cache
 # Set the cache to timeout after 1 hour (setting is in seconds)
