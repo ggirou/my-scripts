@@ -12,6 +12,9 @@ mergetoolBak=${mergetool:-$mergetoolBakBak}
 
 git config --global user.name "$username"
 git config --global user.email "$useremail"
+# Set global gitignore
+cp git/.gitignore_global ~/
+git config --global core.excludesfile ~/.gitignore_global
 # Set the merge tool
 git config --global merge.tool "$mergetool"
 # Set git to use the credential memory cache
