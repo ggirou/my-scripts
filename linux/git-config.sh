@@ -12,6 +12,7 @@ mergetoolBak=${mergetool:-$mergetoolBakBak}
 
 git config --global user.name "$username"
 git config --global user.email "$useremail"
+git config --global pull.rebase true
 # Set global gitignore
 cp git/.gitignore_global ~/
 git config --global core.excludesfile ~/.gitignore_global
