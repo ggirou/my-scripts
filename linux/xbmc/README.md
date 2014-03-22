@@ -6,6 +6,13 @@
   - Dans `Paremètres EPG`, indiquer le chemin vers le fichier `xmltv.xml` ([Source][3])
   - **Activer le plugin**
 
+### Ajouter des interfaces web
+- Aller dans `Système` -> `Paramètres` -> `Extensions`
+- `Télécharger des extensions` -> `XBMC.org Add-ons` -> `Interface Web`
+- Installer les interfaces supplémentaires
+- Les interfaces sont accessibles à l'adresse [http://raspbmc-host/addons/](http://raspbmc-host/addons/)
+
+
 Resources:
 - http://play.with.free.fr/index.php/freebox-tv-en-natif-dans-xbmc/
 - http://www.numa001.fr/la-tv-de-free-sur-pc-f12/la-tv-de-free-sur-xbmc-t176.html
