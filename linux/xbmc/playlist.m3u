@@ -1,0 +1,149 @@
+#EXTM3U
+#EXTINF:0,1 - TF1 HD (TNT)
+rtsp://192.168.0.254/fbxdvb/stream?tsid=5&nid=8442&sid=1281&frontend=1
+#EXTINF:0,2 - France 2 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=201&flavour=hd
+#EXTINF:0,3 - France 3 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=202&flavour=hd
+#EXTINF:0,5 - France 5 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=203&flavour=hd
+#EXTINF:0,6 - M6HD (TNT)
+rtsp://192.168.0.254/fbxdvb/stream?tsid=5&nid=8442&sid=1283&frontend=1
+#EXTINF:0,7 - Arte (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=204&flavour=hd
+#EXTINF:0,8 - D8 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=372&flavour=hd
+#EXTINF:0,10 - TMC (auto)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=497
+#EXTINF:0,11 - NT1 (auto)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=374
+#EXTINF:0,12 - NRJ 12 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=375&flavour=hd
+#EXTINF:0,14 - France 4 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=376&flavour=hd
+#EXTINF:0,15 - BFM TV (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=400&flavour=hd
+#EXTINF:0,16 - i> TELE (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=679&flavour=hd
+#EXTINF:0,17 - D17 (standard)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=678&flavour=sd
+#EXTINF:0,19 - France Ô (standard)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=238&flavour=sd
+#EXTINF:0,21 - L'Equipe 21 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=994&flavour=hd
+#EXTINF:0,23 - Numéro 23 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=996&flavour=hd
+#EXTINF:0,24 - RMC Découverte (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=997&flavour=hd
+#EXTINF:0,25 - Chérie 25 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=998&flavour=hd
+#EXTINF:0,26 - Paris Première (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=213&flavour=hd
+#EXTINF:0,27 - TEVA (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=404&flavour=hd
+#EXTINF:0,28 - RTL9 (standard)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=210&flavour=sd
+#EXTINF:0,33 - Action (standard)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=242&flavour=sd
+#EXTINF:0,34 - Ciné Polar (standard)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=244&flavour=sd
+#EXTINF:0,35 - Ciné FX (standard)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=243&flavour=sd
+#EXTINF:0,36 - TCM Cinéma (standard)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=684&flavour=sd
+#EXTINF:0,39 - AB 1 (standard)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=211&flavour=sd
+#EXTINF:0,46 - beIN SPORTS 1 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=966&flavour=hd
+#EXTINF:0,47 - beIN SPORTS 2 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=970&flavour=hd
+#EXTINF:0,56 - Paramount Channel (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=1050&flavour=hd
+#EXTINF:0,60 - M6 Music (standard)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=430&flavour=sd
+#EXTINF:0,61 - M6 Music Club (standard)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=431&flavour=sd
+#EXTINF:0,62 - M6 Music Black (standard)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=432&flavour=sd
+#EXTINF:0,65 - NRJ Hits (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=620&flavour=hd
+#EXTINF:0,66 - Game One Music HD (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=799&flavour=hd
+#EXTINF:0,69 - Mezzo Live HD (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=858&flavour=hd
+#EXTINF:0,73 - Clubbing TV (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=767&flavour=hd
+#EXTINF:0,79 - TV5 Monde (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=206&flavour=hd
+#EXTINF:0,80 - BFM Business (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=897&flavour=hd
+#EXTINF:0,92 - Campagnes TV (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=1029&flavour=hd
+#EXTINF:0,116 - GONG BASE (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=1045&flavour=hd
+#EXTINF:0,117 - KZTV (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=801&flavour=hd
+#EXTINF:0,121 - Lucky Jack (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=891&flavour=hd
+#EXTINF:0,123 - Nolife (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=658&flavour=hd
+#EXTINF:0,124 - GONG (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=813&flavour=hd
+#EXTINF:0,127 - FTV HD (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=454&flavour=hd
+#EXTINF:0,130 - Eurochannel (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=959&flavour=hd
+#EXTINF:0,136 - Trace Sports Stars (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=965&flavour=hd
+#EXTINF:0,139 - Fight Box HD (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=969&flavour=hd
+#EXTINF:0,140 - Sport 365 TV (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=982&flavour=hd
+#EXTINF:0,152 - Purescreens Nature HD (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=825&flavour=hd
+#EXTINF:0,157 - Luxe.TV (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=460&flavour=hd
+#EXTINF:0,165 - MyZen.tv (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=770&flavour=hd
+#EXTINF:0,168 - The Museum Channel (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=906&flavour=hd
+#EXTINF:0,206 - Brava HD (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=820&flavour=hd
+#EXTINF:0,211 - Deluxe Lounge HD (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=887&flavour=hd
+#EXTINF:0,300 - France 3 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=202&flavour=hd
+#EXTINF:0,364 - TVR (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=1063&flavour=hd
+#EXTINF:0,365 - Tébésud (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=1064&flavour=hd
+#EXTINF:0,366 - Tébéo (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=1065&flavour=hd
+#EXTINF:0,368 - MFM TV (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=1067&flavour=hd
+#EXTINF:0,401 - beIN SPORTS MAX 3 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=971&flavour=hd
+#EXTINF:0,402 - beIN SPORTS MAX 4 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=972&flavour=hd
+#EXTINF:0,403 - beIN SPORTS MAX 5 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=973&flavour=hd
+#EXTINF:0,404 - beIN SPORTS MAX 6 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=974&flavour=hd
+#EXTINF:0,405 - beIN SPORTS MAX 7 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=975&flavour=hd
+#EXTINF:0,406 - beIN SPORTS MAX 8 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=976&flavour=hd
+#EXTINF:0,407 - beIN SPORTS MAX 9 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=977&flavour=hd
+#EXTINF:0,408 - beIN SPORTS MAX 10 (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=978&flavour=hd
+#EXTINF:0,550 - Sutka City TV (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=983&flavour=hd
+#EXTINF:0,664 - Iqraa Int (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=1035&flavour=hd
+#EXTINF:0,680 - NHK (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=812&flavour=hd
+#EXTINF:0,694 - Russia Today (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=726&flavour=hd
+#EXTINF:0,695 - Russia Today Espanol (HD)
+rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=856&flavour=hd
