@@ -1,9 +1,10 @@
 ### Configuration TV Freebox
 - Aller dans `Système` -> `Paramètres` -> `TV Direct`
 - Cocher `Activé`
-- Installer et activer le plugin `PRV IPTV Simple Client`
+- Installer le plugin `PRV IPTV Simple Client`
   - Dans `General`, indiquer le chemin vers le fichier `playlist.m3u` ([Générateur][1])
   - Dans `Paremètres EPG`, indiquer le chemin vers le fichier `xmltv.xml` ([Source][2])
+  - **Activer le plugin**
 
 Resources:
 - http://play.with.free.fr/index.php/freebox-tv-en-natif-dans-xbmc/
