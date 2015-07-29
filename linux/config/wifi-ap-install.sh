@@ -2,7 +2,7 @@
 
 # http://raspberry-at-home.com/hotspot-wifi-access-point/
 
-if [[ $UID != 0 ]]; then echo -e "Please run this script with sudo:\nsudo $0 $*"; exit 1; fi
+[[ $UID == 0 ]] || { echo -e "Please run this script with sudo:\nsudo $0 $*"; exit 1; }
 
 echo 'Available network interfaces:'
 ifconfig  | egrep '^[^ ]+ .*'
@@ -36,7 +36,7 @@ function install_rtl8188c_hostapd {
   wget http://12244.wpc.azureedge.net/8012244/drivers/rtdrivers/cn/wlan/0001-RTL8188C_8192C_USB_linux_v4.0.2_9000.20130911.zip -O /tmp/RTL8188C.zip
 
   zipinfo -1 /tmp/RTL8188C.zip *.tar.gz | grep /wpa_supplicant_hostapd- | xargs unzip -p RTL8188C.zip | tar xz -C /tmp
-  zipinfo -1 /tmp/RTL8188C.zip | grep rtl_hostapd_2G.conf | xargs unzip -p RTL8188C.zip > /etc/hostapd/hostapd.conf
+  zipinfo -1 /tmp/RTL8188C.zip | grep rtl_hostapd_2G.conf | xargs unzip -p /tmp/RTL8188C.zip > /etc/hostapd/hostapd.conf
 
   pushd /tmp/wpa_supplicant_hostapd-*/hostapd
   echo 'Compiling hostapd for RTL8188CUS...'
@@ -48,8 +48,8 @@ function install_rtl8188c_hostapd {
 }
 
 function configure_dhcp {
-  sed -r 's/#DHCPD/DHCPD/' -i /etc/default/isc-dhcp-server
-  sed -r "s/INTERFACES=\".*\"/INTERFACES=\"$interface\"/" -i /etc/default/isc-dhcp-server
+  sed -r 's/^#DHCPD/DHCPD/' -i /etc/default/isc-dhcp-server
+  sed -r "s/^INTERFACES=\".*\"/INTERFACES=\"$interface\"/" -i /etc/default/isc-dhcp-server
   
   sed '/wlan0/,/^}$/d' -i /etc/dhcp/dhcpd.conf
   cat >> /etc/dhcp/dhcpd.conf <<EOF
@@ -62,7 +62,7 @@ EOF
 }
 
 function configure_hostapd {
-   sed -r 's|#?DAEMON_CONF=.*|DAEMON_CONF="/etc/hostapd/hostapd.conf"|' -i /etc/default/hostapd
+   sed -r 's|^#?DAEMON_CONF=.*|DAEMON_CONF="/etc/hostapd/hostapd.conf"|' -i /etc/default/hostapd
 }
 
 function configure_network_interfaces {
@@ -78,16 +78,9 @@ up iptables-restore < /etc/iptables.ipv4.nat
 
 EOF
 
-  sed s/#net.ipv4.ip_forward/net.ipv4.ip_forward/ -i /etc/sysctl.conf
+  sed s/^#net.ipv4.ip_forward/net.ipv4.ip_forward/ -i /etc/sysctl.conf
   
   touch /etc/iptables.ipv4.nat
-  
-  # TODO in wifi-ap-config.sh?
-  #iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-  #iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-  #iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
-
-  #iptables-save > /etc/iptables.ipv4.nat
 }
 
 install_hostapd_dhcp
