@@ -19,7 +19,7 @@ function configure_dhcp {
   sed -r "s/^interface=.*/interface=$interface/" -i /etc/hostapd/hostapd.conf
   sed -r "s/^ssid=.*/ssid=$ssid/" -i /etc/hostapd/hostapd.conf
   sed -r "s/^wpa_(passphrase|psk)=.*/wpa_psk=$wpa_psk/" -i /etc/hostapd/hostapd.conf
-  # service hostapd restart
+  service hostapd restart
   # hostapd /etc/hostapd/hostapd.conf
 }
 
