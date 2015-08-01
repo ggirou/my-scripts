@@ -50,44 +50,5 @@ function install_rtl8188c_hostapd {
   echo
 }
 
-function configure_dhcp {
-  sed -r 's/^#DHCPD/DHCPD/' -i /etc/default/isc-dhcp-server
-  sed -r "s/^INTERFACES=\".*\"/INTERFACES=\"$interface\"/" -i /etc/default/isc-dhcp-server
-  
-  sed '/wlan0/,/^}$/d' -i /etc/dhcp/dhcpd.conf
-  cat >> /etc/dhcp/dhcpd.conf <<EOF
-subnet 192.168.1.0 netmask 255.255.255.0 { # $interface
-  range 192.168.1.1 192.168.1.9;
-  option domain-name-servers 8.8.4.4;
-  option routers  192.168.1.254;
-}
-EOF
-}
-
-function configure_hostapd {
-   sed -r 's|^#?DAEMON_CONF=.*|DAEMON_CONF="/etc/hostapd/hostapd.conf"|' -i /etc/default/hostapd
-}
-
-function configure_network_interfaces {
-  # delete lines from previous interface configuration
-  sed "/$interface/,/^$/d" -i /etc/network/interfaces
-  cat >> /etc/network/interfaces <<EOF
-auto wlan0
-allow-hotplug wlan0
-iface wlan0 inet static
-        address 192.168.1.254
-        netmask 255.255.255.0
-up iptables-restore < /etc/iptables.ipv4.nat
-
-EOF
-
-  sed s/^#net.ipv4.ip_forward/net.ipv4.ip_forward/ -i /etc/sysctl.conf
-  
-  touch /etc/iptables.ipv4.nat
-}
-
 install_hostapd_dhcp
 install_rtl8188c_hostapd
-configure_dhcp
-configure_hostapd
-configure_network_interfaces
