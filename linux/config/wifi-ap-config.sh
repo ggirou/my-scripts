@@ -13,6 +13,25 @@ read -e -p "Bridge on: " -i "eth0" bridge
 read -e -p "Router static IP: " -i "192.168.1.254" router_ip
 echo
 
+function install_hostapd_dhcp {
+  sudo apt-get install -y hostapd isc-dhcp-server
+  echo
+
+  echo 'Backuping files...'
+  cp -n /etc/network/interfaces /etc/network/interfaces.bak
+
+  cp -n /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.bak
+
+  if [ ! -f /etc/hostapd/hostapd.conf ]; then
+    zcat /usr/share/doc/hostapd/examples/hostapd.conf.gz > /etc/hostapd/hostapd.conf
+  fi
+  
+  cp -n /etc/default/hostapd /etc/default/hostapd.bak
+  cp -n /etc/hostapd/hostapd.conf /etc/hostapd/hostapd.conf.bak
+
+  echo
+}
+
 function configure_hostapd {
   read -e -p "Access point SSID: " ssid
   read -s -e -p "Access point password: " password
@@ -81,6 +100,7 @@ function restart_services {
   tail -f /var/log/syslog
 }
 
+install_hostapd_dhcp
 configure_hostapd
 configure_bridge
 configure_network_interfaces
