@@ -4,6 +4,82 @@
 
 [[ $UID == 0 ]] || { echo -e "Please run this script with sudo:\nsudo $0 $*"; exit 1; }
 
+function free_space {
+  # GUI-related packages
+  pkgs="
+  xserver-xorg-video-fbdev
+  xserver-xorg xinit
+  gstreamer1.0-x gstreamer1.0-omx gstreamer1.0-plugins-base
+  gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-alsa
+  gstreamer1.0-libav
+  epiphany-browser
+  lxde lxtask menu-xdg gksu
+  xserver-xorg-video-fbturbo
+  xpdf gtk2-engines alsa-utils
+  netsurf-gtk zenity
+  desktop-base lxpolkit
+  weston
+  omxplayer
+  raspberrypi-artwork
+  lightdm gnome-themes-standard-data gnome-icon-theme
+  qt50-snapshot qt50-quick-particle-examples
+  "
+
+  # Edu-related packages
+  pkgs="$pkgs
+  idle python3-pygame python-pygame python-tk
+  idle3 python3-tk
+  python3-rpi.gpio
+  python-serial python3-serial
+  python-picamera python3-picamera
+  debian-reference-en dillo x2x
+  scratch nuscratch
+  raspberrypi-ui-mods
+  timidity
+  smartsim penguinspuzzle
+  pistore
+  sonic-pi
+  python3-numpy
+  python3-pifacecommon python3-pifacedigitalio python3-pifacedigital-scratch-handler python-pifacecommon python-pifacedigitalio
+  oracle-java8-jdk
+  minecraft-pi python-minecraftpi
+  wolfram-engine
+  "
+
+	apt-get -y remove --purge $pkgs
+  apt-get -y autoremove
+  apt-get -y clean
+  apt-get -y autoclean
+}
+
+function install_raspberry_headers {
+  # Firmware 3.18.16
+  # rpi-update 33a6707cf1c96b8a2b5dac2ac9dead590db9fcaa
+  rpi-update
+  # reboot 
+
+  modprobe configs
+
+  # Install gcc 4.8.3+
+  sed s/wheezy/jessie/ -i /etc/apt/sources.list
+  apt-get update
+  #apt-get dist-upgrade
+
+  apt-get install gcc-4.8 g++-4.8 libncurses5-dev
+  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40 --slave /usr/bin/g++ g++ /usr/bin/g++-4.8
+  update-alternatives --set gcc /usr/bin/gcc-4.8
+
+  # Ensure that date is up-to-date
+  date -s "$(curl -sD - google.com | grep '^Date:' | cut -d' ' -f3-6)Z"
+
+  # if not enough space, mount another disk with more space
+  # sshfs#root@192.168.2.254:/root/tmp    /root/tmp    fuse    port=22,user,exec,_netdev,noatime,allow_other,nonempty    0  0
+  rpi-source -d /tmp
+
+  sed s/jessie/wheezy/ -i /etc/apt/sources.list
+  apt-get update
+}
+
 function install_rtl8188c_hostapd {
   # 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter
   echo 'Downloading drivers for Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter...'
@@ -25,19 +101,21 @@ function install_rtl8188c_hostapd {
 }
 
 function install_mt7601u_drivers {
-  sed s/wheezy/jessie/ -i /etc/apt/sources.list
-  apt-get update
-  apt-get dist-upgrade
+  # https://github.com/kuba-moo/mt7601u
+  echo 'Downloading drivers for Ralink Technology, Corp. MT7601U 802.11n WLAN Adapter...'
+  [[ ! -f /tmp/MT7601U.tar.bz2 ]] && wget http://cdn-cw.mediatek.com/Downloads/linux/DPO_MT7601U_LinuxSTA_3.0.0.4_20130913.tar.bz2 -O /tmp/MT7601U.tar.bz2
 
-  # Firmware 3.18.16
-  # rpi-update 33a6707cf1c96b8a2b5dac2ac9dead590db9fcaa
-  rpi-update
+  tar xjf /tmp/MT7601U.tar.bz2 -C /tmp
 
-  apt-get install gcc-4.8 g++-4.8
-  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40 --slave /usr/bin/g++ g++ /usr/bin/g++-4.8
-  update-alternatives --set gcc /usr/bin/gcc-4.8
+  cp /tmp/DPO_MT7601U_*/mcu/bin/MT7601.bin /lib/firmware/mt7601u.bin
 
-  rpi-source
+  git clone https://github.com/kuba-moo/mt7601u.git /tmp/mt7601u
+  pushd /tmp/mt7601u
+  make
+  # modprobe mac80211
+  # insmod ./mt7601u.ko
+  make install && depmod
+  popd
 }
 
 function install_mt7601u_drivers_bak {
@@ -99,4 +177,8 @@ function install_mt7601u_drivers_bak {
 }
 
 install_rtl8188c_hostapd
-#install_mt7601u_drivers
+
+free_space
+install_raspberry_headers
+install_mt7601u_drivers
+
