@@ -4,7 +4,14 @@ source ${BASH_SOURCE%/*}/../utils/commons.sh
 
 askForNewValue "$HTTP_PROXY" "HTTP_PROXY" HTTP_PROXY
 askForNewValue "$NO_PROXY" "NO_PROXY" NO_PROXY
+username=`dconf read /system/proxy/http/authentication-user`
+askForNewValue "$username" "Username" username
+read -s -p "Password: " password
+host=`echo "$HTTP_PROXY" | sed -r 's#^.+(/|@)(.+):.+?$#\2#g'`
+port=`echo "$HTTP_PROXY" | sed -r 's/^.+:([^:]+)$/\1/g'`
 
+echo $host
+echo $port
 
 TMP=`cat <<EOF
 HTTP_PROXY=$HTTP_PROXY
